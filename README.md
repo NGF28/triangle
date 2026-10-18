@@ -38,9 +38,12 @@ positive `s`.
 | Test | Copilot-suggested? | Kept / edited / rejected | Why |
 |---|---|---|---|
 | `test_classifies_triangle_cases` | Yes - Copilot-assisted draft | Edited | Expanded the cases to check invalid, all side classes, right classification, and the non-integer right-isosceles case against the specification. |
-| `test_degenerate_boundary_is_invalid` | Yes - Copilot-assisted draft | Kept | Explicitly checks that equality in the triangle inequality is invalid. |
+| `test_degenerate_boundary_is_invalid` | Yes - Copilot-assisted draft | Kept | I checked that the test correctly rejects a triangle with sides (1, 2, 3). Since 1 + 2 = 3, it does not satisfy the strict triangle inequality and should return "Invalid". |
 | `test_right_triangle_tolerance` (reviewed candidate) | No — not an actual inline completion | Rejected | A draft check using `a**2 + b**2 == c**2` would fail the required `5, 5, 5*sqrt(2)` case; the implemented test instead passes those sides to `classify_triangle` and expects `"Right Isosceles"`. |
 | `test_stained_glass_customer_flow` | No — customer acceptance test | Kept | Written from the customer criteria without Copilot, as required. |
+| `test_valid_triangle_returns_true` | fill in — Copilot-assisted | Kept | I checked the test, it uses valid triangle sides (3,4,5). since the sum of any 2 sides is greater than the 3rd side, the fuction should bne true. |
+| `test_right_triangle_with_non_integer_sides` | fill in  — Copilot-assisted | Kept | I checked that the test correctly identifies a right isosceles triangle using non-integer sides. This is important because floating-point calculations can have small rounding errors, so the classifier should use math.isclose() instead of ==. |
+
 
 **Review limitation:** this workspace did not expose VS Code's inline
 autocomplete interface. Copilot assisted with drafting and reviewing the unit

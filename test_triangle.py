@@ -37,3 +37,13 @@ def test_degenerate_boundary_is_invalid():
 def test_nonpositive_or_impossible_sides_are_invalid(sides):
     assert not is_valid_triangle(*sides)
     assert classify_triangle(*sides) == "Invalid"
+
+def test_valid_triangle_returns_true():
+    # check that sides 3, 4, 5 from a valid triangle
+    assert is_valid_triangle(3, 4, 5) is True
+
+def test_right_triangle_with_non_integer_sides():
+    # check legs 5 and 5 with hypotenuse 5*sqrt(2)
+    assert classify_triangle(
+        5, 5, 5 * sqrt(2)
+        ) == "Right Isosceles"
